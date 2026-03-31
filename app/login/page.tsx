@@ -8,7 +8,7 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { toast } from 'sonner'
-import { LogIn } from 'lucide-react'
+import { CarFront } from 'lucide-react'
 
 export default function LoginPage() {
     const [email, setEmail] = useState('')
@@ -59,7 +59,7 @@ export default function LoginPage() {
             <Card className="w-full max-w-md shadow-2xl shadow-indigo-900/5 border-slate-200/60 bg-white/80 backdrop-blur-xl relative z-10">
                 <CardHeader className="space-y-6 text-center pt-8 pb-4">
                     <div className="mx-auto bg-indigo-600 text-white p-4 rounded-2xl w-fit shadow-lg shadow-indigo-600/20 transform -translate-y-2">
-                        <LogIn size={32} strokeWidth={1.5} />
+                        <CarFront size={32} strokeWidth={1.5} />
                     </div>
                     <div className="space-y-2">
                         <CardTitle className="text-3xl font-extrabold tracking-tight text-slate-900">

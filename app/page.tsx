@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { createClient } from '@/lib/supabase/client'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { LogOut, ExternalLink, Search, ChevronLeft, ChevronRight, LogIn } from 'lucide-react'
+import { LogOut, ExternalLink, Search, ChevronLeft, ChevronRight, LogIn, CarFront } from 'lucide-react'
 import Image from 'next/image'
 import { toast } from 'sonner'
 import { Input } from '@/components/ui/input'
@@ -86,7 +86,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center shadow-lg shadow-indigo-600/20">
-              <ExternalLink size={18} className="text-white" />
+              <CarFront size={18} className="text-white" />
             </div>
             <h1 className="text-xl font-bold text-slate-900 tracking-tight">Info Car</h1>
           </div>
@@ -122,7 +122,7 @@ export default function Home() {
             Todo <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-500">En un solo lugar</span>
           </h1>
           <p className="text-lg md:text-xl text-slate-700 max-w-2xl mx-auto leading-relaxed font-medium drop-shadow-sm bg-white/40 backdrop-blur-sm rounded-xl py-2 px-4 inline-block">
-            Accede de forma rápida y centralizada a todas las plataformas autorizadas por la organización.
+            Centraliza tu entorno de trabajo y elimina el tiempo perdido en búsquedas improductivas. Accede al instante a las plataformas y recursos clave para maximizar tu eficiencia diaria.
           </p>
         </div>
 
