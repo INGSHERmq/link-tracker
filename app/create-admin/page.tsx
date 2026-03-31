@@ -15,7 +15,13 @@ export default function CreateFirstAdmin() {
     const handleSubmit = async (formData: FormData) => {
         setLoading(true)
         try {
-            const result = await createUser(formData)
+            const data = {
+                email: formData.get('email') as string,
+                password: formData.get('password') as string,
+                full_name: formData.get('full_name') as string | undefined,
+                role: formData.get('role') as 'admin' | 'user'
+            }
+            const result = await createUser(data)
             toast.success("¡Usuario creado!", {
                 description: result.message,
             })
