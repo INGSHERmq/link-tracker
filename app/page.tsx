@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { createClient } from '@/lib/supabase/client'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { LogOut, ExternalLink, Search, ChevronLeft, ChevronRight } from 'lucide-react'
+import { LogOut, ExternalLink, Search, ChevronLeft, ChevronRight, LogIn } from 'lucide-react'
 import Image from 'next/image'
 import { toast } from 'sonner'
 import { Input } from '@/components/ui/input'
@@ -91,7 +91,7 @@ export default function Home() {
             <h1 className="text-xl font-bold text-slate-900 tracking-tight">Link Tracker</h1>
           </div>
 
-          {user && (
+          {user ? (
             <Button
               onClick={handleLogout}
               variant="ghost"
@@ -99,6 +99,15 @@ export default function Home() {
             >
               <LogOut size={18} className="mr-2" />
               Cerrar Sesión
+            </Button>
+          ) : (
+            <Button
+              onClick={() => window.location.href = '/login'}
+              variant="ghost"
+              className="text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition-colors"
+            >
+              <LogIn size={18} className="mr-2" />
+              Iniciar Sesión
             </Button>
           )}
         </div>
