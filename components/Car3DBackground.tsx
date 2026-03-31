@@ -74,12 +74,12 @@ function Car() {
         <Wheel position={[-1.2, 0.25, -0.9]} />
 
         {/* Faros delanteros */}
-        <mesh position={[2, 0.5, 0.6]} castShadow>
-          <cylinderGeometry args={[0.15, 0.15, 0.1, 16]} rotation={[0, 0, Math.PI / 2]} />
+        <mesh position={[2, 0.5, 0.6]} castShadow rotation={[0, 0, Math.PI / 2]}>
+          <cylinderGeometry args={[0.15, 0.15, 0.1, 16]} />
           <meshStandardMaterial color="#ffff00" emissive="#ffff00" emissiveIntensity={2} />
         </mesh>
-        <mesh position={[2, 0.5, -0.6]} castShadow>
-          <cylinderGeometry args={[0.15, 0.15, 0.1, 16]} rotation={[0, 0, Math.PI / 2]} />
+        <mesh position={[2, 0.5, -0.6]} castShadow rotation={[0, 0, Math.PI / 2]}>
+          <cylinderGeometry args={[0.15, 0.15, 0.1, 16]} />
           <meshStandardMaterial color="#ffff00" emissive="#ffff00" emissiveIntensity={2} />
         </mesh>
 
@@ -119,8 +119,8 @@ function Wheel({ position }: { position: [number, number, number] }) {
   return (
     <group position={position}>
       {/* Neumático */}
-      <mesh ref={wheelRef} castShadow>
-        <cylinderGeometry args={[0.3, 0.3, 0.2, 32]} rotation={[0, 0, Math.PI / 2]} />
+      <mesh ref={wheelRef} castShadow rotation={[0, 0, Math.PI / 2]}>
+        <cylinderGeometry args={[0.3, 0.3, 0.2, 32]} />
         <meshStandardMaterial color="#1a1a1a" roughness={0.9} />
       </mesh>
 
