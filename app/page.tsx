@@ -88,7 +88,7 @@ export default function Home() {
             <div className="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center shadow-lg shadow-indigo-600/20">
               <ExternalLink size={18} className="text-white" />
             </div>
-            <h1 className="text-xl font-bold text-slate-900 tracking-tight">Link Tracker</h1>
+            <h1 className="text-xl font-bold text-slate-900 tracking-tight">Info Car</h1>
           </div>
 
           {user ? (
@@ -115,7 +115,7 @@ export default function Home() {
 
       {/* Sección interactiva 3D del automóvil */}
       <div className="relative w-full h-[400px] md:h-[500px] bg-gradient-to-b from-slate-100 to-slate-50 border-b border-slate-200/50 overflow-hidden">
-        
+
         {/* Título sobrepuesto */}
         <div className="absolute inset-0 flex flex-col items-center justify-center z-10 pointer-events-none px-6 text-center space-y-4">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight drop-shadow-md">

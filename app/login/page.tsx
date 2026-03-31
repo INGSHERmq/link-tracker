@@ -63,7 +63,7 @@ export default function LoginPage() {
                     </div>
                     <div className="space-y-2">
                         <CardTitle className="text-3xl font-extrabold tracking-tight text-slate-900">
-                            Link Tracker
+                            Info Car
                         </CardTitle>
                         <CardDescription className="text-base text-slate-500 font-medium">
                             Panel Administrativo
