@@ -32,8 +32,8 @@ export async function middleware(request: NextRequest) {
 
     const pathname = request.nextUrl.pathname
 
-    // Si no hay sesión y quiere entrar a admin → redirigir a login
-    if (pathname.startsWith('/admin') && !session) {
+    // Si no hay sesión y quiere entrar a admin o a la página principal (/) → redirigir a login
+    if (!session && (pathname.startsWith('/admin') || pathname === '/')) {
         return NextResponse.redirect(new URL('/login', request.url))
     }
 
@@ -74,5 +74,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-    matcher: ['/admin/:path*', '/login'],
+    matcher: ['/admin/:path*', '/login', '/'],
 }
