@@ -119,7 +119,7 @@ export default function Home() {
         {/* Título sobrepuesto */}
         <div className="absolute inset-0 flex flex-col items-center justify-center z-10 pointer-events-none px-6 text-center space-y-4">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight drop-shadow-md">
-            Enlaces <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-500">Oficiales</span>
+            Todo <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-500">En un solo lugar</span>
           </h1>
           <p className="text-lg md:text-xl text-slate-700 max-w-2xl mx-auto leading-relaxed font-medium drop-shadow-sm bg-white/40 backdrop-blur-sm rounded-xl py-2 px-4 inline-block">
             Accede de forma rápida y centralizada a todas las plataformas autorizadas por la organización.
