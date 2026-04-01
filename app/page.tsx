@@ -48,22 +48,28 @@ export default function Home() {
 
   useEffect(() => {
     const getUserAndLinks = async () => {
-      // Obtener usuario actual
-      const { data: { user } } = await supabase.auth.getUser()
-      setUser(user)
+      try {
+        // Obtener usuario actual
+        const { data: { user } } = await supabase.auth.getUser()
+        setUser(user)
 
-      // Obtener enlaces
-      const { data, error } = await supabase
-        .from('links')
-        .select('*')
-        .order('created_at', { ascending: false })
+        // Obtener enlaces
+        const { data, error } = await supabase
+          .from('links')
+          .select('*')
+          .order('created_at', { ascending: false })
 
-      if (error) {
-        console.error(error)
-      } else {
-        setLinks(data || [])
+        if (error) {
+          console.error("Error fetching links:", error)
+          toast.error("Error al cargar los enlaces")
+        } else {
+          setLinks(data || [])
+        }
+      } catch (err) {
+        console.error("Critical error loading homepage:", err)
+      } finally {
+        setLoading(false)
       }
-      setLoading(false)
     }
 
     getUserAndLinks()

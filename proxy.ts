@@ -2,7 +2,7 @@ import { createServerClient } from '@supabase/ssr'
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
     let response = NextResponse.next({
         request,
     })
@@ -28,24 +28,25 @@ export async function middleware(request: NextRequest) {
         }
     )
 
-    const { data: { session } } = await supabase.auth.getSession()
+    const { data: { user } } = await supabase.auth.getUser()
 
     const pathname = request.nextUrl.pathname
 
-    // Si no hay sesión y quiere entrar a admin o a la página principal (/) → redirigir a login
-    if (!session && (pathname.startsWith('/admin') || pathname === '/')) {
+    // Si no hay usuario y quiere entrar a admin o a la página principal (/) → redirigir a login
+    if (!user && (pathname.startsWith('/admin') || pathname === '/')) {
         return NextResponse.redirect(new URL('/login', request.url))
     }
 
-    // Si hay sesión, verificar rol y redirigir según corresponda
-    if (session) {
+    // Si hay usuario, verificar rol y redirigir según corresponda
+    if (user) {
         // Si está en login → redirigir según rol
         if (pathname === '/login') {
             const { data: profile } = await supabase
                 .from('profiles')
                 .select('role')
-                .eq('id', session.user.id)
+                .eq('id', user.id)
                 .single()
+
 
             const isAdmin = profile?.role === 'admin'
 
@@ -61,7 +62,7 @@ export async function middleware(request: NextRequest) {
             const { data: profile } = await supabase
                 .from('profiles')
                 .select('role')
-                .eq('id', session.user.id)
+                .eq('id', user.id)
                 .single()
 
             if (profile?.role !== 'admin') {

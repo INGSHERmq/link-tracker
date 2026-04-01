@@ -16,13 +16,19 @@ export default function AdminDashboard() {
 
     useEffect(() => {
         const getUser = async () => {
-            const { data: { user } } = await supabase.auth.getUser()
-            if (!user) {
+            try {
+                const { data: { user }, error } = await supabase.auth.getUser()
+                if (error || !user) {
+                    router.push('/login')
+                    return
+                }
+                setUser(user)
+            } catch (err) {
+                console.error("Error loading admin panel:", err)
                 router.push('/login')
-                return
+            } finally {
+                setLoading(false)
             }
-            setUser(user)
-            setLoading(false)
         }
 
         getUser()
