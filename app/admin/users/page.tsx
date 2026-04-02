@@ -236,13 +236,13 @@ export default function AdminUsers() {
                                 </div>
                                 <div className="space-y-2 pt-1">
                                     <Label className="text-neutral-300">Nivel de Acceso</Label>
-                                    <Select value={formData.role} onValueChange={(value: 'user' | 'admin') => setFormData({ ...formData, role: value })}>
+                                    <Select value={formData.role} onValueChange={(value: any) => setFormData({ ...formData, role: value })}>
                                         <SelectTrigger className="bg-neutral-950 border-white/10 text-white focus:ring-indigo-500">
                                             <SelectValue />
                                         </SelectTrigger>
-                                        <SelectContent className="bg-neutral-800 border-white/10 text-white">
+                                        <SelectContent className="bg-neutral-800 border-white/10 text-white z-[150]">
                                             <SelectItem value="user" className="focus:bg-white/10 focus:text-white cursor-pointer">Usuario Estándar</SelectItem>
-                                            <SelectItem value="admin" className="focus:bg-white/10 focus:text-white cursor-pointer">Configurador (Admin)</SelectItem>
+                                            <SelectItem value="admin" className="focus:bg-white/10 focus:text-white cursor-pointer">Administrador</SelectItem>
                                         </SelectContent>
                                     </Select>
                                 </div>
